@@ -7,7 +7,9 @@
 
 - 로그인(이메일/비밀번호) → `lc_is_admin()` 확인 → 대시보드 · 공지 · 원격 설정 · 제보함. 라이트/다크, 좁은 화면(390px) 확인.
 - 실 Supabase 로 종단 확인: 콘솔에서 만든 공지를 앱(익명 키)이 읽음, 앱 제보를 콘솔에서 처리.
-- 남은 일: GitHub 저장소 · Pages 첫 배포, 실제 관리자 계정 등록(README "관리자 등록").
+- 배포됨(2026-10-21): GitHub `kwakkit/laundrycast-console`(공개) → Actions → https://kwakkit.github.io/laundrycast-console/ .
+  저장소 변수 `VITE_SUPABASE_URL`·`VITE_SUPABASE_PUBLISHABLE_KEY` 설정됨.
+- 남은 일: 실제 관리자 계정 등록(README "관리자 등록").
 
 ## 구조
 
