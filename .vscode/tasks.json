@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev 서버",
+      "type": "npm",
+      "script": "dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "vite",
+        "pattern": { "regexp": "^$" },
+        "background": { "activesBegin": "VITE", "beginsPattern": "VITE", "endsPattern": "Local:" }
+      }
+    },
+    { "label": "검사 (tsc + eslint + vitest)", "type": "npm", "script": "check", "group": "test", "problemMatcher": ["$tsc"] }
+  ]
+}

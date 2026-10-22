@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "런디캐스트 콘솔 (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173/laundrycast-console/",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "dev 서버"
+    }
+  ]
+}
