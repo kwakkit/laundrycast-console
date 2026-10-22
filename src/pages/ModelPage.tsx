@@ -23,7 +23,7 @@ export function ModelPage() {
         </div>
       </header>
       <div className="panel note">
-        <strong>주의</strong> — 저장하면 앱의 다음 예보 계산과 다음 알림 계산부터 바로 쓰입니다. 정확도(대시보드 오차)를
+        <strong>주의</strong> — 저장하면 알림(서버)은 다음 실행부터, 앱은 다음에 예보를 새로 받을 때(앱을 다시 열거나 새로고침 — 켜 둔 채면 늦어도 1시간 안)부터 씁니다. 정확도(대시보드 오차)를
         보고 조금씩 바꾸세요. 널기 탐색 범위는 앱만 씁니다.
       </div>
       <AsyncView state={state}>
