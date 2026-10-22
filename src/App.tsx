@@ -7,12 +7,14 @@ import { ConfigPage } from './pages/ConfigPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { FeedbackPage } from './pages/FeedbackPage';
 import { Brand, LoginPage } from './pages/LoginPage';
+import { ModelPage } from './pages/ModelPage';
 import { NoticesPage } from './pages/NoticesPage';
 
 const PAGES = [
   { id: 'dashboard', label: '대시보드', view: DashboardPage },
   { id: 'notices', label: '공지', view: NoticesPage },
   { id: 'config', label: '원격 설정', view: ConfigPage },
+  { id: 'model', label: '건조 모델', view: ModelPage },
   { id: 'feedback', label: '제보함', view: FeedbackPage },
 ] as const;
 type PageId = (typeof PAGES)[number]['id'];

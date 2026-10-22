@@ -55,3 +55,12 @@ export interface FeedbackItem {
   admin_note: string | null;
   created_at: string;
 }
+
+/** lc_model_params — 건조 모델 파라미터(scope 별 한 행). 앱 · Edge Function 이 읽는다. */
+export interface ModelParamsRow {
+  scope: string;
+  params: Record<string, unknown>;
+  fitted_at: string | null;
+  n_samples: number;
+  updated_at: string;
+}

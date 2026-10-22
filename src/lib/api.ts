@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-import type { ConfigEntry, FeedbackItem, FeedbackStatus, Notice, Overview } from './types';
+import type { ConfigEntry, FeedbackItem, FeedbackStatus, ModelParamsRow, Notice, Overview } from './types';
 
 // Supabase 호출은 이 파일에만. 화면은 이 함수들만 부른다.
 
@@ -43,6 +43,18 @@ export async function fetchConfig(): Promise<ConfigEntry[]> {
 export async function updateConfig(key: string, value: unknown): Promise<void> {
   const rows = check(await supabase.from('lc_app_config').update({ value }).eq('key', key).select('key'));
   if (!rows || rows.length === 0) throw new Error('저장되지 않았습니다(권한 또는 키 확인)');
+}
+
+export async function fetchModelParams(): Promise<ModelParamsRow[]> {
+  return check(await supabase.from('lc_model_params').select('*').order('scope')) as ModelParamsRow[];
+}
+
+/** 손으로 고친 값 — fitted_at 을 비워 "보정값 아님"을 남긴다(0011 임시 조정과 같은 방식). */
+export async function updateModelParams(scope: string, params: Record<string, unknown>): Promise<void> {
+  const rows = check(
+    await supabase.from('lc_model_params').update({ params, fitted_at: null }).eq('scope', scope).select('scope'),
+  );
+  if (!rows || rows.length === 0) throw new Error('저장되지 않았습니다(권한 또는 scope 확인)');
 }
 
 export async function fetchFeedback(status: FeedbackStatus | null): Promise<FeedbackItem[]> {

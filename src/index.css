@@ -420,6 +420,36 @@ th.num {
   background: var(--primary);
 }
 
+tr.group-row th {
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 14px;
+}
+td.wrap {
+  white-space: normal;
+  word-break: keep-all;
+  min-width: 150px;
+}
+td.input-cell {
+  width: 150px;
+  min-width: 120px;
+}
+td.input-cell input {
+  font-variant-numeric: tabular-nums;
+  padding: 7px 10px;
+}
+td.input-cell .small {
+  margin-top: 3px;
+}
+.show-narrow {
+  display: none;
+}
+input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
 /* ---------- 카드 · 알약 ---------- */
 
 .card {
@@ -439,6 +469,13 @@ th.num {
   justify-content: flex-end;
   gap: 8px;
 }
+.card-actions.wrap-actions {
+  flex-wrap: wrap;
+  align-items: center;
+}
+.grow {
+  flex: 1 1 auto;
+}
 .body-text {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
@@ -448,6 +485,7 @@ th.num {
 }
 .pill {
   display: inline-block;
+  white-space: nowrap;
   padding: 2px 10px;
   border-radius: 999px;
   font-size: 12.5px;
@@ -607,6 +645,59 @@ select:focus-visible,
   gap: 14px;
 }
 
+.stack.tight {
+  gap: 6px;
+}
+/* 앱 배너(secondaryContainer · 모서리 16 · 폰 너비)를 흉내 낸 미리보기. */
+.notice-preview {
+  width: min(360px, 100%);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 10px 12px 16px;
+  border-radius: 16px;
+  background: var(--primary-weak);
+  color: var(--text);
+}
+.notice-preview svg {
+  flex: none;
+  margin-top: 2px;
+}
+.notice-preview-text {
+  flex: 1;
+  min-width: 0;
+}
+.notice-preview-text strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.notice-preview-text p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.notice-preview .placeholder {
+  color: var(--muted);
+  font-weight: 400;
+}
+.notice-preview-close {
+  flex: none;
+  width: 24px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--text-2);
+}
+
 /* ---------- 좁은 화면 ---------- */
 
 @media (max-width: 760px) {
@@ -645,5 +736,25 @@ select:focus-visible,
   }
   .hero-value {
     font-size: 44px;
+  }
+  .hide-narrow {
+    display: none;
+  }
+  .show-narrow {
+    display: block;
+  }
+  td.wrap {
+    min-width: 110px;
+  }
+  td.wrap-narrow {
+    white-space: normal;
+    word-break: keep-all;
+  }
+  td.wrap-narrow .pill {
+    margin-bottom: 2px;
+  }
+  td.input-cell {
+    width: 104px;
+    min-width: 96px;
   }
 }

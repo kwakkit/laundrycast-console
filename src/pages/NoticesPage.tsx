@@ -128,6 +128,7 @@ function NoticeEditor({ notice, onClose, onSaved }: { notice: Notice | null; onC
           내용
           <textarea value={body} maxLength={2000} rows={6} onChange={(e) => setBody(e.target.value)} />
         </label>
+        <NoticePreview title={title.trim()} body={body.trim()} />
         <div className="row">
           <label>
             시작(한국 시각)
@@ -148,6 +149,30 @@ function NoticeEditor({ notice, onClose, onSaved }: { notice: Notice | null; onC
           </button>
         </div>
       </form>
+    </div>
+  );
+}
+
+/** 앱 오늘 화면 배너 모양(앱 notice_banner.dart) — 제목 한 줄 + 본문 2줄까지, 누르면 전문. */
+function NoticePreview({ title, body }: { title: string; body: string }) {
+  return (
+    <div className="stack tight">
+      <span className="muted small">앱 미리보기 · 오늘 화면 맨 위 (본문은 2줄까지, 누르면 전문)</span>
+      <div className="notice-preview" aria-label="앱 배너 미리보기">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M18 11v2h4v-2h-4zm-2 6.61c.96.71 2.21 1.65 3.2 2.39.4-.53.8-1.07 1.2-1.6-.99-.74-2.24-1.68-3.2-2.4-.4.54-.8 1.08-1.2 1.61zM20.4 5.6c-.4-.53-.8-1.07-1.2-1.6-.99.74-2.24 1.68-3.2 2.4.4.53.8 1.07 1.2 1.6.96-.72 2.21-1.65 3.2-2.4zM4 9c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1v4h2v-4h1l5 3V6L8 9H4zm11.5 3c0-1.33-.58-2.53-1.5-3.35v6.69c.92-.81 1.5-2.01 1.5-3.34z"
+          />
+        </svg>
+        <div className="notice-preview-text">
+          <strong className={title ? undefined : 'placeholder'}>{title || '제목'}</strong>
+          <p className={body ? undefined : 'placeholder'}>{body || '내용'}</p>
+        </div>
+        <span className="notice-preview-close" aria-hidden="true">
+          ×
+        </span>
+      </div>
     </div>
   );
 }
